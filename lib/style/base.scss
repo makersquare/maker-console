@@ -1,0 +1,132 @@
+
+#console .interface {
+  display: none;
+  position: fixed; top: 50%; right: 0px; bottom: 0px; left: 0px;
+  border-top: 4px solid;
+  input {
+    border: 3px solid;
+    margin-bottom: 0;
+    position: absolute; bottom: 0;
+  }
+  .output-scroller {
+    position: absolute; top: 0; right: 0; bottom: 32px; left: 0;
+    overflow: auto;
+    pre { margin-bottom: 1px; padding: 11px 15px 10px; }
+  }
+  .output {
+    display: none;
+    min-height: 100%;
+    > * {
+      margin-bottom: 1px;
+      padding: 11px 15px 10px;
+    }
+  }
+  .tabs {
+    height: 32px;
+    position: absolute; top: -36px; right: 0; bottom: 0; left: 0;
+    .tab {
+      @extend %code-font;
+      cursor: pointer;
+      float: left;
+      height: 100%;
+      line-height: 32px;
+      padding: 0 8px;
+      text-decoration: underline;
+    }
+  }
+}
+
+#console .widgets {
+  background: #f0f3f5;
+  border: 1px solid #474747;
+  display: none;
+  position: fixed; right: 0px; bottom: 0px;
+  z-index: 2;
+  .button {
+    margin-bottom: 0;
+  }
+}
+
+// Websocket connection indicator
+#console .widgets::before {
+  background: #ec8787;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  content: " ";
+  display: block;
+  position: absolute; top: -3px; left: -3px;
+  margin: auto;
+  width: 9px; height: 9px;
+  z-index: 3;
+}
+body.online #console .widgets::before {
+  background: #80d580;
+}
+
+body.console {
+  padding-bottom: 50%;
+}
+
+/* * * * * * * * */
+/* Chat Messages */
+/* * * * * * * * */
+
+.output .chat-message {
+  .author {
+    width: 7em;
+    margin-right: 1em;
+    float: left;
+    text-align: right;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .content {
+    min-height: 1em;
+  }
+  .team { display: none; }
+  .time {
+    @extend %code-font;
+    float: right;
+  }
+}
+// Special cases for main output
+.output[data-tab-id="main"] .chat-message {
+  .team { display: inline; }
+}
+
+/* * * * * */
+/* Theming */
+/* * * * * */
+
+#console .interface {
+  background: #1F2123;
+  border-top-color: #5c6166;
+  .tabs {
+    background: #888c91;
+    .tab.active { color: white; }
+  }
+  input {
+    background: #E6E6E6;
+    border-color: #E6E6E6;
+    box-shadow: none;
+    color: black;
+    &:focus { border-color: #57c1ff; }
+  }
+  .output {
+    color: white;
+    > * {
+      background: #35383b;
+    }
+  }
+}
+
+.output .chat-message {
+  .author { color: #999; }
+  .author.me { color: #70CDA1; }
+  .time { color: #999; }
+  .team { color: #7aceff; }
+}
