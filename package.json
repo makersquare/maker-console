@@ -1,0 +1,9 @@
+{
+  "name": "maker-console",
+  "version": "0.0.1",
+  "description": "MakerSquare's student console, open source!",
+  "homepage": "https://github.com/makersquare/maker-console",
+  "devDependencies": {
+    "gulp": "~3.5.6"
+  }
+}
