@@ -5,7 +5,7 @@ gutil = require('gulp-util');
 
 //saves production files to ./public/
 
-//CoffeeScript Complier
+//CoffeeScript Complier in .public/javascript/
 var coffee = require('gulp-coffee');
 
 gulp.task('coffee', function(){
@@ -14,7 +14,7 @@ gulp.task('coffee', function(){
     .pipe(gulp.dest('./public/javascript'));
 });
 
-//concat production JS files in ./public/javascript
+//concat production JS files in ./production/not_minified/
 var concatJS = require('gulp-concat');
 
 gulp.task('concatjs', function(){
