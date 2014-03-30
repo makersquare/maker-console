@@ -11,7 +11,7 @@ concatJS = require('gulp-concat'),
 uglify = require('gulp-uglify'),
 file_order = ['./lib/maker-console.coffee', './lib/util.coffee', './lib/models/*.coffee', './lib/views/*.coffee', './lib/console/.*coffee'];
 
-gulp.task('build-js', function(){
+gulp.task('build', function(){
   gulp.src(file_order)
     .pipe(coffee({bare:true}).on('error', gutil.log))
     .pipe(concatJS('maker-console.js'))
