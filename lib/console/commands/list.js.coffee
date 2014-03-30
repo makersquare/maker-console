@@ -13,7 +13,7 @@ listCommand =
     else
       app.console.puts "list: `#{type}` is not a valid subject."
 
-MKS.onInit (app) ->
+MKConsole.onInit (app) ->
   return unless g.userIsAdmin
   app.commands['list'] = listCommand
 

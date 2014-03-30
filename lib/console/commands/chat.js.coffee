@@ -24,4 +24,4 @@ chatCommand =
     # TODO: Once notifications are in place, write subcmd
     #       for turning on/off chat
 
-MKS.onInit (app) -> app.commands['chat'] = chatCommand
+MKConsole.onInit (app) -> app.commands['chat'] = chatCommand

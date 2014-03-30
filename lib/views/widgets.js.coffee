@@ -15,5 +15,5 @@ DashboardView = Backbone.View.extend
   render: ->
     @widgets.each (w) -> w.render()
 
-MKS.onInit (app) ->
+MKConsole.onInit (app) ->
   app.dashboard = new DashboardView({ app: app })

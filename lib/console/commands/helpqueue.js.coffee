@@ -18,7 +18,7 @@ toggleHelpQueueCommand =
     app.console.puts "Turning help queue #{state}"
     app.prefs.set 'notifyHelpQueue', toggle
 
-MKS.onInit (app) ->
+MKConsole.onInit (app) ->
   return unless g.userIsAdmin
   app.commands['helpqueue'] = toggleHelpQueueCommand
   app.commandAliases['helpq'] = toggleHelpQueueCommand

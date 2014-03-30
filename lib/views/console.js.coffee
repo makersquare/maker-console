@@ -117,5 +117,5 @@ ConsoleView = Backbone.View.extend
       this.puts "`/#{cmd}` is not a command."
 
 
-MKS.onInit (app) ->
+MKConsole.onInit (app) ->
   app.console = new ConsoleView({ app: app })

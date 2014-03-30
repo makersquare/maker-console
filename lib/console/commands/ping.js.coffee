@@ -22,4 +22,4 @@ pingCommand =
 
     app.console.puts(msg)
 
-MKS.onInit (app) -> app.commands['ping'] = pingCommand
+MKConsole.onInit (app) -> app.commands['ping'] = pingCommand

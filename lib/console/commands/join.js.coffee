@@ -11,6 +11,6 @@ joinCommand =
       app.console.puts "Joining room `#{roomId}`..."
       app.stream.send('join_room', roomId)
 
-MKS.onInit (app) ->
+MKConsole.onInit (app) ->
   return unless g.userIsAdmin
   app.commands['join'] = joinCommand

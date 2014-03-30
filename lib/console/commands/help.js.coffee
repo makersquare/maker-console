@@ -26,4 +26,4 @@ helpCommand =
     output += "Use `/help COMMAND` to get more details about a specific command."
     app.console.puts(output)
 
-MKS.onInit (app) -> app.commands['help'] = helpCommand
+MKConsole.onInit (app) -> app.commands['help'] = helpCommand

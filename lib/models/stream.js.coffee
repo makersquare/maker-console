@@ -21,7 +21,7 @@ Stream = Backbone.View.extend
         @app.teamNames = {}
         @app.teamNames[team.id] = team.name for team in data.teams
       if data.prefs
-        @app.prefs = new MKS.Prefs(data.prefs)
+        @app.prefs = new MKConsole.Prefs(data.prefs)
 
       @app.pubsub.trigger 'whoami', data
 
@@ -76,6 +76,6 @@ Stream = Backbone.View.extend
     @socket.send('2|echo|x')
     @heartbeatTimeout = setTimeout this.heartbeat, 9847
 
-MKS.onInit (app) ->
+MKConsole.onInit (app) ->
   app.stream = new Stream({ app: app })
   app.stream.connect()

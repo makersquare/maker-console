@@ -16,7 +16,7 @@ helpTemplate = _.template """
 </div>
 """
 
-MKS.HelpQueueView = Backbone.View.extend
+MKConsole.HelpQueueView = Backbone.View.extend
 
   initialize: (options) ->
     @roomId = options.collection.roomId
@@ -48,6 +48,6 @@ MKS.HelpQueueView = Backbone.View.extend
       me: if data.userId == g.userId then 'me' else ''
     template _.extend(data, extra)
 
-MKS.HelpQueueView.load = ->
+MKConsole.HelpQueueView.load = ->
   return unless g.userIsAdmin
-  app.helpQueueView ||= new MKS.HelpQueueView()
+  app.helpQueueView ||= new MKConsole.HelpQueueView()

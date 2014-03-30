@@ -34,7 +34,7 @@ HelpQueue = Backbone.Collection.extend({
   }
 });
 
-MKS.onInit(function(app) {
+MKConsole.onInit(function(app) {
   if (!g.userIsAdmin) {
     return;
   }
@@ -64,7 +64,7 @@ ChatRoom = Backbone.Collection.extend({
   }
 });
 
-MKS.onInit(function(app) {
+MKConsole.onInit(function(app) {
   var createOrUpdateRoom;
   app.rooms || (app.rooms = {});
   createOrUpdateRoom = function(roomId, history) {
@@ -97,7 +97,7 @@ MKS.onInit(function(app) {
   });
 });
 
-MKS.Prefs = Backbone.Model.extend({
+MKConsole.Prefs = Backbone.Model.extend({
   initialize: function() {
     return this.on('change', (function(_this) {
       return function(prefs, options) {
@@ -143,7 +143,7 @@ Stream = Backbone.View.extend({
           }
         }
         if (data.prefs) {
-          _this.app.prefs = new MKS.Prefs(data.prefs);
+          _this.app.prefs = new MKConsole.Prefs(data.prefs);
         }
         return _this.app.pubsub.trigger('whoami', data);
       };
@@ -204,7 +204,7 @@ Stream = Backbone.View.extend({
   }
 });
 
-MKS.onInit(function(app) {
+MKConsole.onInit(function(app) {
   app.stream = new Stream({
     app: app
   });
@@ -343,7 +343,7 @@ ConsoleView = Backbone.View.extend({
   }
 });
 
-MKS.onInit(function(app) {
+MKConsole.onInit(function(app) {
   return app.console = new ConsoleView({
     app: app
   });
@@ -369,7 +369,7 @@ DashboardView = Backbone.View.extend({
   }
 });
 
-MKS.onInit(function(app) {
+MKConsole.onInit(function(app) {
   return app.dashboard = new DashboardView({
     app: app
   });

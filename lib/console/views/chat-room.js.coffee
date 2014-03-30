@@ -48,7 +48,7 @@ ChatRoomView = Backbone.View.extend
       me: if data.userId == g.userId then 'me' else ''
     template _.extend(data, extra)
 
-MKS.onInit (app) ->
+MKConsole.onInit (app) ->
   app.roomViews ||= {}
 
   app.pubsub.on 'chat_room_init', (chatRoom) ->

@@ -1,5 +1,5 @@
 
-MKS.Prefs = Backbone.Model.extend
+MKConsole.Prefs = Backbone.Model.extend
   initialize: ->
     this.on 'change', (prefs, options) =>
       for prop, val of prefs.changed

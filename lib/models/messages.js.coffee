@@ -13,7 +13,7 @@ ChatRoom = Backbone.Collection.extend
     return if roomId != @roomId
     this.add(message)
 
-MKS.onInit (app) ->
+MKConsole.onInit (app) ->
   app.rooms ||= {}
 
   createOrUpdateRoom = (roomId, history) ->
