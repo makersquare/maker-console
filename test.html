@@ -3,14 +3,16 @@
     <head>
       <meta charset="UTF-8">
       <title>MAKER-CONSOLE</title>
-      <link rel="stylesheet" type="text/css" href="base.scss">
+      <link rel="stylesheet" type="text/css" href="base.css">
     </head>
     <body>
       <h1>THIS IS A TEST PAGE FOR THE MAKER-CONSOLE</h1>
       <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
       <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
-      <script type="text/javascript" src="maker-console.min.js"></script>
-
+      <script type="text/javascript" src="maker-console.js"></script>
+      <script>
+        window.app = new MKConsole.App();
+      </script>
     </body>
   </html>

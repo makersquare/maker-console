@@ -9,6 +9,7 @@ rename = require('gulp-rename');
 var coffee = require('gulp-coffee'),
 concatJS = require('gulp-concat'),
 uglify = require('gulp-uglify'),
+sass = require('gulp-sass'),
 file_order = ['./lib/maker-console.coffee', './lib/util.coffee', './lib/models/*.coffee', './lib/views/*.coffee', './lib/console/.*coffee'];
 
 gulp.task('build', function(){
@@ -19,4 +20,7 @@ gulp.task('build', function(){
     .pipe(uglify())
     .pipe(rename('maker-console.min.js'))
     .pipe(gulp.dest('.'));
+  gulp.src('./lib/style/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('./lib/style/css'))
 });
