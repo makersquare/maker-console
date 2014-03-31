@@ -7,7 +7,6 @@ var express = require('express'),
 app = express();
 
 // serve assets
-
 app.use(express.static(__dirname + '/lib/style/css'));
 app.get('/maker-console.js', function(req, res){
  res.sendfile(__dirname + '/maker-console.js');
