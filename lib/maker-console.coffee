@@ -1,6 +1,6 @@
 
 ## BACKBONE EXTENTIONS
-Backbone.View = Backbone.View.exend
+Backbone.View = Backbone.View.extend
   constructor: (options) ->
     _.extend(this, _.pick(options, "app"))
     Backbone.View.prototype.apply(this, arguments)

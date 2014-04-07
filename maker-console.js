@@ -1,8 +1,9 @@
 var appClass, initializers;
 
-Backbone.View = Backbone.View.exend({
+Backbone.View = Backbone.View.extend({
   constructor: function(options) {
-    return _.extend(this, _.pick(options, "app"));
+    _.extend(this, _.pick(options, "app"));
+    return Backbone.View.prototype.apply(this, arguments);
   }
 });
 
