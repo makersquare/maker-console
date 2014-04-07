@@ -7,5 +7,5 @@ HelpQueue = Backbone.Collection.extend
     this.listenTo @app.pubsub, 'stream:help_queue_requests', this.add
 
 MKConsole.onInit (app) ->
-  return unless g.userIsAdmin
+  return unless MKConsole.config.userIsAdmin
   app.helpQueue ||= new HelpQueue([], { app })

@@ -1,5 +1,11 @@
 var appClass, initializers;
 
+Backbone.View = Backbone.View.exend({
+  constructor: function(options) {
+    return _.extend(this, _.pick(options, "app"));
+  }
+});
+
 initializers = [];
 
 appClass = (window.MKConsole || (window.MKConsole = {}));
@@ -19,6 +25,10 @@ appClass.App = Backbone.View.extend({
   }
 });
 
+appClass.config = {
+  userIsAdmin: false
+};
+
 appClass.onInit = function(func) {
   return initializers.push(func);
 };
@@ -35,7 +45,7 @@ HelpQueue = Backbone.Collection.extend({
 });
 
 MKConsole.onInit(function(app) {
-  if (!g.userIsAdmin) {
+  if (!MKConsole.config.userIsAdmin) {
     return;
   }
   return app.helpQueue || (app.helpQueue = new HelpQueue([], {
