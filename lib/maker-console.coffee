@@ -1,3 +1,11 @@
+# ## BACKBONE EXTENTIONS
+# Backbone.View = Backbone.View.exend
+#   constructor: (options) ->
+#     @app = options.app
+
+
+
+
 initializers = []
 
 appClass = (window.MKConsole ||= {})
@@ -11,4 +19,10 @@ appClass.App = Backbone.View.extend
 
     init(this) for init in initializers
 
+
+appClass.config =
+    userIsAdmin: false
+    streamUrl:
+
 appClass.onInit = (func) -> initializers.push(func)
+

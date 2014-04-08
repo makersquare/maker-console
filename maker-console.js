@@ -19,6 +19,10 @@ appClass.App = Backbone.View.extend({
   }
 });
 
+appClass.config = {
+  userIsAdmin: false
+};
+
 appClass.onInit = function(func) {
   return initializers.push(func);
 };
@@ -35,7 +39,7 @@ HelpQueue = Backbone.Collection.extend({
 });
 
 MKConsole.onInit(function(app) {
-  if (!g.userIsAdmin) {
+  if (!MKConsole.config.userIsAdmin) {
     return;
   }
   return app.helpQueue || (app.helpQueue = new HelpQueue([], {
@@ -120,6 +124,7 @@ var Stream,
 
 Stream = Backbone.View.extend({
   initialize: function(options) {
+    this.app = options.app;
     this.lastConnected = null;
     this.heartbeatTimeout = null;
     _.bindAll(this, 'heartbeat');
@@ -151,7 +156,7 @@ Stream = Backbone.View.extend({
   },
   connect: function() {
     var socket;
-    this.socket = socket = new ReconnectingWebSocket("ws://" + g.streamUrl);
+    this.socket = socket = new ReconnectingWebSocket("ws://" + MKConsole.config.streamUrl);
     socket.onopen = function() {
       console.log("stream:open");
       return socket.send('2|auth|' + g.sid);
