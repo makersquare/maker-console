@@ -1,9 +1,9 @@
+# ## BACKBONE EXTENTIONS
+# Backbone.View = Backbone.View.exend
+#   constructor: (options) ->
+#     @app = options.app
 
-## BACKBONE EXTENTIONS
-Backbone.View = Backbone.View.extend
-  constructor: (options) ->
-    _.extend(this, _.pick(options, "app"))
-    Backbone.View.prototype.apply(this, arguments)
+
 
 
 initializers = []
@@ -22,6 +22,7 @@ appClass.App = Backbone.View.extend
 
 appClass.config =
     userIsAdmin: false
+    streamUrl:
 
 appClass.onInit = (func) -> initializers.push(func)
 

@@ -1,6 +1,8 @@
 
 Stream = Backbone.View.extend
+
   initialize: (options) ->
+    @app = options.app
     @lastConnected = null
     @heartbeatTimeout = null
 
@@ -26,7 +28,7 @@ Stream = Backbone.View.extend
       @app.pubsub.trigger 'whoami', data
 
   connect: ->
-    @socket = socket = new ReconnectingWebSocket("ws://#{g.streamUrl}");
+    @socket = socket = new ReconnectingWebSocket("ws://#{MKConsole.config.streamUrl}");
 
     # Set event handlers.
     socket.onopen = ->

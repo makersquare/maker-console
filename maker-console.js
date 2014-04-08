@@ -1,12 +1,5 @@
 var appClass, initializers;
 
-Backbone.View = Backbone.View.extend({
-  constructor: function(options) {
-    _.extend(this, _.pick(options, "app"));
-    return Backbone.View.prototype.apply(this, arguments);
-  }
-});
-
 initializers = [];
 
 appClass = (window.MKConsole || (window.MKConsole = {}));
@@ -131,6 +124,7 @@ var Stream,
 
 Stream = Backbone.View.extend({
   initialize: function(options) {
+    this.app = options.app;
     this.lastConnected = null;
     this.heartbeatTimeout = null;
     _.bindAll(this, 'heartbeat');
@@ -162,7 +156,7 @@ Stream = Backbone.View.extend({
   },
   connect: function() {
     var socket;
-    this.socket = socket = new ReconnectingWebSocket("ws://" + g.streamUrl);
+    this.socket = socket = new ReconnectingWebSocket("ws://" + MKConsole.config.streamUrl);
     socket.onopen = function() {
       console.log("stream:open");
       return socket.send('2|auth|' + g.sid);
